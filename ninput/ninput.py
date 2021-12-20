@@ -832,7 +832,7 @@ def ne_float_input(to, text='', error_text="Enter number negative to ", error_te
     :param error_text_input_bool: if set True shows text if get error default True
     :return: float number not equal to 'to'
     """
-    return func(float, than=to, text=text, error_text=error_text,
+    return func(float, to=to, text=text, error_text=error_text,
                 error_text_format_bool=error_text_format_bool, error_text_format=error_text_format,
                 pause=pause, pause_text_bool=pause_text_bool, pause_text=pause_text, clear=clear,
                 error_text_input=error_text_input, pause_input=pause_input,
@@ -867,7 +867,7 @@ def ne_int_input(to, text='', error_text="Enter integer number negative to ", er
     :param error_text_input_bool: if set True shows text if get error default True
     :return: int number not equal to 'to'
     """
-    return func(int, than=to, text=text, error_text=error_text,
+    return func(int, to=to, text=text, error_text=error_text,
                 error_text_format_bool=error_text_format_bool, error_text_format=error_text_format,
                 pause=pause, pause_text_bool=pause_text_bool, pause_text=pause_text, clear=clear,
                 error_text_input=error_text_input, pause_input=pause_input,
