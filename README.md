@@ -1,6 +1,8 @@
 # ninput
 gives options to input integers and floats easier 
 
+# functions
+
 int_input and float_input are using to inputs that types of numbers functions if somebody input other type of object 
 gives in option to show text informing that it`s not that type then in option gives to pause untill press enter
 then in option gives to clear console and again ask to input
@@ -34,3 +36,39 @@ ne_int_input and ne_float_input is int and float input but user have to input nu
 positive_int_input and positive_float_input is is int and float input but user have to input positive number
 
 negative_int_input and negative_float_input is is int and float input but user have to input positive number
+
+
+# Params
+:param than: numbers that input number must be lower, giger, between or not equal in not equal param named to in between case
+you should give tuple or list dont exist in int_input, float_input, positive_int_input, positive_float_input, 
+negative_int_input and negative_float_input
+
+:param text: text that shows on input default ''
+
+:param error_text: text that show in case if equation if False and error_text_bool is True; in int_input, float_input is the same to error_text_input
+
+:param error_text_format_bool: if True shows formated error text; dont exist in int_input, float_input
+
+:param error_text_format: formated error text dont exist in int_input, float_input
+
+:param pause:if set True pause program until Enter is pressed default True; in int_input, float_input is the same to error_text_input 
+
+:param pause_text_bool:if True shows text in pause; in int_input, float_input is the same to error_text_input 
+
+:param pause_text:What shows on pause; in int_input, float_input is the same to error_text_input 
+
+:param clear: if True clear console; in int_input, float_input is the same to error_text_input 
+
+:param error_text_input:text that shows on error case -> if cant convert into int; dont exist in int_input, float_input
+
+:param pause_input:same as pause but in inputing; dont exist in int_input, float_input
+
+:param pause_input_text_bool:same as pause_text_bool but in inputing; dont exist in int_input, float_input
+
+:param pause_input_text:same as pause_text but in inputing; dont exist in int_input, float_input
+
+:param clear_input:same as clear but in inputing; dont exist in int_input, float_input
+
+:param error_text_bool: if true shows error text if equation isnt true; in int_input, float_input is the same to error_text_input 
+
+:param error_text_input_bool: same as error_text_bool but in inputing; dont exist in int_input, float_input
