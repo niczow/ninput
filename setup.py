@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 
-VERSION = '0.1.1'
+VERSION = '0.1.3'
 PACKAGE_NAME = 'ninput'
 AUTHOR = 'Kacper Nowicz'
 AUTHOR_EMAIL = 'niczow@op.pl'
