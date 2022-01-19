@@ -17,16 +17,9 @@ def _input_num(num_type, text='', error_text_bool=True, pause=True,
         :return: number
         """
     while True:
-        try:
-            number = num_type(input(text))
-        except (Exception,):
-            if error_text_bool:
-                print(error_text)
-            if pause:
-                if pause_text_bool:
-                    input(pause_text)
-            if clear:
-                os.system('cls' if os.name == 'nt' else 'clear')
+        _if_error(0, error_text_format_bool=False, error_text_format='', error_text=error_text,
+                      error_text_bool=error_text_bool, pause=pause, pause_text_bool=pause_text_bool,
+                      pause_text=pause_text, clear=clear)
         else:
             return number
 
