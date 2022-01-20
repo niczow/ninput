@@ -17,7 +17,10 @@ def _input_num(num_type, text='', error_text_bool=True, pause=True,
         :return: number
         """
     while True:
-        _if_error(0, error_text_format_bool=False, error_text_format='', error_text=error_text,
+        try:
+            number = num_type(input(text))
+        except (Exception,):
+            _if_error(0, error_text_format_bool=False, error_text_format='', error_text=error_text,
                       error_text_bool=error_text_bool, pause=pause, pause_text_bool=pause_text_bool,
                       pause_text=pause_text, clear=clear)
         else:
@@ -88,81 +91,37 @@ def _ee_num_input(num_type, than, eq, text='', error_text="", error_text_format_
                          clear=clear_input, error_text_bool=error_text_input_bool)
 
         if eq == "==":
-            if number == than:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
+            if not number == than:
                 return number
         elif eq == "<":
-            if number < than:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
+            if number >= than:
                 return number
         elif eq == "<=":
-            if number <= than:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
+            if number > than:
                 return number
         elif eq == ">":
-            if number > than:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
+            if number <= than:
                 return number
         elif eq == ">=":
-            if number >= than:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
+            if number < than:
                 return number
-
         elif eq == "<<":
-            if not than[0] < number < than[1]:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
+            if than[0] < number < than[1]:
                 return number
-
         elif eq == "<=<":
-            if not than[0] <= number < than[1]:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
+            if than[0] <= number < than[1]:
                 return number
-
         elif eq == "<<=":
-            if not than[0] < number <= than[1]:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
+            if than[0] < number <= than[1]:
+                return number
+        elif eq == "<=<=":
+            if than[0] <= number <= than[1]:
                 return number
 
-        elif eq == "<=<=":
-            if not than[0] <= number <= than[1]:
-                func[1](to=than, error_text_format_bool=error_text_format_bool,
-                        error_text_format=error_text_format, error_text=error_text,
-                        pause=pause, pause_text_bool=pause_text_bool,
-                        pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
-            else:
-                return number
+        func[1](to=than, error_text_format_bool=error_text_format_bool,
+                error_text_format=error_text_format, error_text=error_text,
+                pause=pause, pause_text_bool=pause_text_bool,
+                pause_text=pause_text, clear=clear, error_text_bool=error_text_bool)
 
 
 def _lt_num_input(num_type, than, func=_ee_num_input, text='', error_text="Enter number less than ",
@@ -869,8 +828,8 @@ def ne_int_input(to, text='', error_text="Enter integer number negative to ", er
                 error_text_input_bool=error_text_input_bool)
 
 
-def be_float_input(than, text='', error_text="Enter number great or equal than ", error_text_format_bool=True,
-                   error_text_format="Enter number great or equal than {}", pause=True, pause_text_bool=True,
+def be_float_input(than, text='', error_text="Enter number between or equal than ", error_text_format_bool=True,
+                   error_text_format="Enter number between or equal than {}", pause=True, pause_text_bool=True,
                    pause_text='Press Enter...', clear=True, error_text_input="Enter float number!",
                    pause_input=True, pause_input_text_bool=True, pause_input_text='Press Enter...', clear_input=True,
                    error_text_bool=True, error_text_input_bool=True, func=_be_num_input):
@@ -904,8 +863,8 @@ def be_float_input(than, text='', error_text="Enter number great or equal than "
                 error_text_input_bool=error_text_input_bool)
 
 
-def bet_float_input(than, text='', error_text="Enter number great or equal than ", error_text_format_bool=True,
-                    error_text_format="Enter number great or equal than {}", pause=True, pause_text_bool=True,
+def bet_float_input(than, text='', error_text="Enter number between ", error_text_format_bool=True,
+                    error_text_format="Enter number great or equal and less than {}", pause=True, pause_text_bool=True,
                     pause_text='Press Enter...', clear=True, error_text_input="Enter float number!",
                     pause_input=True, pause_input_text_bool=True, pause_input_text='Press Enter...', clear_input=True,
                     error_text_bool=True, error_text_input_bool=True, func=_bet_num_input):
@@ -940,8 +899,8 @@ def bet_float_input(than, text='', error_text="Enter number great or equal than 
                 error_text_input_bool=error_text_input_bool)
 
 
-def bte_float_input(than, text='', error_text="Enter number great or equal than ", error_text_format_bool=True,
-                    error_text_format="Enter number great or equal than {}", pause=True, pause_text_bool=True,
+def bte_float_input(than, text='', error_text="Enter number between ", error_text_format_bool=True,
+                    error_text_format="Enter number great and less or equal than {}", pause=True, pause_text_bool=True,
                     pause_text='Press Enter...', clear=True, error_text_input="Enter float number!",
                     pause_input=True, pause_input_text_bool=True, pause_input_text='Press Enter...', clear_input=True,
                     error_text_bool=True, error_text_input_bool=True, func=_bte_num_input):
@@ -976,8 +935,8 @@ def bte_float_input(than, text='', error_text="Enter number great or equal than 
                 error_text_input_bool=error_text_input_bool)
 
 
-def bt_float_input(than, text='', error_text="Enter number great or equal than ", error_text_format_bool=True,
-                   error_text_format="Enter number great or equal than {}", pause=True, pause_text_bool=True,
+def bt_float_input(than, text='', error_text="Enter number between ", error_text_format_bool=True,
+                   error_text_format="Enter number between to {}", pause=True, pause_text_bool=True,
                    pause_text='Press Enter...', clear=True, error_text_input="Enter float number!",
                    pause_input=True, pause_input_text_bool=True, pause_input_text='Press Enter...', clear_input=True,
                    error_text_bool=True, error_text_input_bool=True, func=_bt_num_input):
@@ -1047,7 +1006,7 @@ def be_int_input(than, text='', error_text="Enter number between or equal than "
 
 
 def bet_int_input(than, text='', error_text="Enter number between or equal than ", error_text_format_bool=True,
-                  error_text_format="Enter number between or equal than {}", pause=True, pause_text_bool=True,
+                  error_text_format="Enter number great or equal and less than {}", pause=True, pause_text_bool=True,
                   pause_text='Press Enter...', clear=True, error_text_input="Enter integer number!",
                   pause_input=True, pause_input_text_bool=True, pause_input_text='Press Enter...', clear_input=True,
                   error_text_bool=True, error_text_input_bool=True, func=_bet_num_input):
@@ -1083,7 +1042,7 @@ def bet_int_input(than, text='', error_text="Enter number between or equal than 
 
 
 def bte_int_input(than, text='', error_text="Enter number between or equal than ", error_text_format_bool=True,
-                  error_text_format="Enter number between or equal than {}", pause=True, pause_text_bool=True,
+                  error_text_format="Enter number great and less or equal than {}", pause=True, pause_text_bool=True,
                   pause_text='Press Enter...', clear=True, error_text_input="Enter integer number!",
                   pause_input=True, pause_input_text_bool=True, pause_input_text='Press Enter...', clear_input=True,
                   error_text_bool=True, error_text_input_bool=True, func=_bte_num_input):
