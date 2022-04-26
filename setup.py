@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 
-VERSION = '0.2.0'
+VERSION = '0.3.0'
 PACKAGE_NAME = 'ninput'
 AUTHOR = 'Kacper Nowicz'
 AUTHOR_EMAIL = 'niczow@op.pl'
@@ -15,6 +15,7 @@ LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"
 
 INSTALL_REQUIRES = [
+      'os', 'time'
 ]
 
 setup(name=PACKAGE_NAME,
