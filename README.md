@@ -1,5 +1,6 @@
 # ninput
-gives options to input integers and floats easier 
+gives options to input integers and floats easier
+in version 0.3.0 added time sleeping in error case
 
 # functions
 
@@ -70,3 +71,27 @@ negative_int_input and negative_float_input
 :param error_text_bool: if true shows error text if equation isnt true; in int_input, float_input is the same to error_text_input 
 
 :param error_text_input_bool: same as error_text_bool but in inputing; Doesn`t exist in int_input, float_input
+
+:param sleep_format_text: formatted sleep text
+
+:param sleep_text: sleep text
+    
+:param sleep_format_text_bool: if set True that show sleep_format_text else show sleep text
+
+:param sleep_time: time to sleep
+
+:param sleep_text_bool: if set True show text on sleeping
+
+:param sleep_bool: if True sleep program for a sleep_time
+
+:param sleep_format_text_input: formatted sleep text
+
+:param sleep_text_input: sleep text
+
+:param sleep_format_text_bool_input: if set True that show sleep_format_text else show sleep text
+
+:param sleep_time_input: time to sleep
+
+:param sleep_text_bool_input: if set True show text on sleeping
+
+:param sleep_bool_input: if True sleep program for a sleep_time
